@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SD | Sweet Dreams</title>
+
+    <meta name="description"
+        content="Sweet Dreams: canciones suaves, podcasts de relajación y música para descansar mejor.">
+
+    <style>
+
+        /* =====================================================
+           COLORES PRINCIPALES DE LA PÁGINA
+           Puedes cambiar estos códigos para cambiar los colores
+           ===================================================== */
+
+        :root {
+            --morado: #9b6cff;
+            --morado-claro: #c5a7ff;
+
+            --azul: #101d58;
+            --azul-oscuro: #05091d;
+
+            --azul-secundario: #172d7a;
+
+            --celeste: #78d9ff;
+
+            --blanco: #f7f5ff;
+            --texto: #dcdcf2;
+
+            --tarjeta: rgba(24, 31, 82, 0.72);
+        }
+
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: var(--blanco);
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(120, 217, 255, 0.12),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 80% 25%,
+                    rgba(155, 108, 255, 0.16),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    160deg,
+                    #030616 0%,
+                    #08133d 48%,
+                    #05091d 100%
+                );
+
+            min-height: 100vh;
+        }
+
+
+        /* Estrellitas decorativas */
+
+        body::before {
+
+            content: "✦  ·  ✧  ·  ✦     ·    ✧      ·  ✦";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            color: rgba(255, 255, 255, 0.16);
+
+            font-size: 22px;
+
+            letter-spacing: 38px;
+
+            line-height: 100px;
+
+            overflow: hidden;
+
+            z-index: -1;
+        }
+
+
+        /* =====================================================
+           MENÚ DE NAVEGACIÓN
+           ===================================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
+            backdrop-filter: blur(14px);
+
+            background: rgba(3, 6, 22, 0.78);
+
+            border-bottom: 1px solid rgba(155, 108, 255, 0.22);
+        }
+
+
+        nav {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 14px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 18px;
+        }
+
+
+        /* Logo pequeño del menú */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        .brand img {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+        }
+
+
+        .brand span {
+
+            color: var(--morado-claro);
+        }
+
+
+        /* Enlaces del menú */
+
+        nav a {
+
+            color: var(--texto);
+
+            text-decoration: none;
+
+            margin-left: 18px;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+
+        nav a:hover {
+
+            color: white;
+
+            text-shadow: 0 0 12px var(--morado);
+        }
+
+
+        /* =====================================================
+           SECCIÓN PRINCIPAL / INICIO
+           ===================================================== */
+
+        .hero {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 82px 22px 70px;
+
+            min-height: 650px;
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 45px;
+        }
+
+
+        /* Pequeña etiqueta superior */
+
+        .tag {
+
+            display: inline-block;
+
+            padding: 8px 13px;
+
+            border: 1px solid rgba(120, 217, 255, 0.35);
+
+            border-radius: 999px;
+
+            color: var(--celeste);
+
+            background: rgba(120, 217, 255, 0.07);
+
+            font-size: 13px;
+        }
+
+
+        /* Título principal */
+
+        h1 {
+
+            font-size: clamp(48px, 7vw, 82px);
+
+            line-height: 0.95;
+
+            margin: 20px 0 15px;
+        }
+
+
+        h1 span {
+
+            color: var(--morado-claro);
+        }
+
+
+        /* Eslogan */
+
+        .slogan {
+
+            font-size: 23px;
+
+            color: white;
+
+            margin: 0 0 15px;
+        }
+
+
+        /* Propuesta de valor */
+
+        .proposal {
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: var(--texto);
+
+            max-width: 650px;
+        }
+
+
+        /* Botones */
+
+        .buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 28px;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 13px 19px;
+
+            border-radius: 13px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            transition: 0.2s;
+        }
+
+
+        .primary {
+
+            background: linear-gradient(
+                135deg,
+                var(--morado),
+                #6f65e9
+            );
+
+            color: white;
+
+            box-shadow: 0 10px 30px rgba(120, 90, 255, 0.25);
+        }
+
+
+        .secondary {
+
+            background: rgba(255, 255, 255, 0.06);
+
+            color: white;
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-2px);
+        }
+
+
+        /* Isologo grande */
+
+        .hero-logo {
+
+            width: min(390px, 85%);
+
+            margin: auto;
+
+            display: block;
+
+            border-radius: 50%;
+
+            box-shadow:
+
+                0 0 70px rgba(155, 108, 255, 0.28),
+
+                0 0 25px rgba(120, 217, 255, 0.12);
+        }
+
+
+        /* =====================================================
+           SECCIONES GENERALES
+           ===================================================== */
+
+        section {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 70px 22px;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            font-size: 36px;
+
+            margin: 0 0 12px;
+        }
+
+
+        .section-sub {
+
+            text-align: center;
+
+            color: #aaaed0;
+
+            max-width: 700px;
+
+            margin: 0 auto 35px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           TARJETAS
+           ===================================================== */
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .card {
+
+            background: var(--tarjeta);
+
+            border: 1px solid rgba(155, 108, 255, 0.18);
+
+            border-radius: 20px;
+
+            padding: 24px;
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .card h3 {
+
+            margin: 8px 0 10px;
+        }
+
+
+        .card p {
+
+            color: var(--texto);
+
+            line-height: 1.6;
+
+            margin: 0;
+        }
+
+
+        .icon {
+
+            font-size: 30px;
+        }
+
+
+        /* =====================================================
+           RECOMENDACIONES MUSICALES
+           ===================================================== */
+
+        .music-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .music-card {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            background:
+
+                linear-gradient(
+                    120deg,
+                    rgba(25, 35, 93, 0.8),
+                    rgba(14, 21, 58, 0.8)
+                );
+
+            border: 1px solid rgba(120, 217, 255, 0.15);
+
+            padding: 20px;
+
+            border-radius: 18px;
+        }
+
+
+        .music-card h3 {
+
+            margin: 0 0 5px;
+        }
+
+
+        .music-card p {
+
+            margin: 0;
+
+            color: #aeb5d9;
+
+            font-size: 14px;
+        }
+
+
+        /* Botón de reproducir */
+
+        .play {
+
+            min-width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            border: 0;
+
+            cursor: pointer;
+
+            background: var(--morado);
+
+            color: white;
+
+            font-size: 18px;
+
+            box-shadow: 0 0 20px rgba(155, 108, 255, 0.35);
+
+            transition: 0.2s;
+        }
+
+
+        .play:hover {
+
+            transform: scale(1.08);
+
+            box-shadow: 0 0 30px rgba(155, 108, 255, 0.6);
+        }
+
+
+        /* =====================================================
+           ZONA KIDS
+           ===================================================== */
+
+        .kids {
+
+            border: 1px solid rgba(120, 217, 255, 0.2);
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(16, 48, 112, 0.68),
+                    rgba(65, 39, 126, 0.52)
+                );
+
+            border-radius: 28px;
+
+            padding: 35px;
+        }
+
+
+        .kids .music-card {
+
+            background: rgba(5, 12, 40, 0.42);
+        }
+
+
+        /* Aviso de la zona Kids */
+
+        .note {
+
+            margin-top: 18px;
+
+            padding: 14px 16px;
+
+            border-radius: 12px;
+
+            background: rgba(0, 0, 0, 0.18);
+
+            color: #cdd5f3;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           CONTACTO
+           ===================================================== */
+
+        .contact {
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(111, 77, 180, 0.18),
+                    rgba(37, 103, 144, 0.12)
+                );
+
+            border: 1px solid rgba(155, 108, 255, 0.18);
+
+            border-radius: 26px;
+        }
+
+
+        /* =====================================================
+           PIE DE PÁGINA
+           ===================================================== */
+
+        footer {
+
+            margin-top: 20px;
+
+            padding: 32px 22px;
+
+            text-align: center;
+
+            background: #030616;
+
+            border-top: 1px solid rgba(155, 108, 255, 0.2);
+
+            color: #aaaed0;
+        }
+
+
+        footer strong {
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           DISEÑO PARA CELULARES
+           ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding-top: 55px;
+            }
+
+
+            .proposal {
+
+                margin: auto;
+            }
+
+
+            .buttons {
+
+                justify-content: center;
+            }
+
+
+            .grid,
+
+            .music-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            nav {
+
+                flex-direction: column;
+            }
+
+
+            .brand {
+
+                align-self: flex-start;
+            }
+
+
+            nav div:last-child {
+
+                display: flex;
+
+                gap: 8px;
+
+                flex-wrap: wrap;
+            }
+
+
+            nav a {
+
+                margin-left: 0;
+
+                margin-right: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENÚ
+         ===================================================== -->
+
+    <header>
+
+        <nav>
+
+            <div class="brand">
+
+                <!--
+                    IMPORTANTE:
+                    Esta imagen debe llamarse "isologo.png"
+                    y estar en la misma carpeta que este archivo.
+                -->
+
+                <img
+                    src="isologo.png"
+                    alt="Isologo de Sweet Dreams"
+                >
+
+                <div>
+
+                    SD
+
+                    <span>Sweet Dreams</span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <a href="#inicio">Inicio</a>
+
+                <a href="#recomendaciones">
+                    Recomendaciones
+                </a>
+
+                <a href="#kids">
+                    Zona Kids
+                </a>
+
+                <a href="#contacto">
+                    Contacto
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             INICIO
+             ================================================= -->
+
+        <section class="hero" id="inicio">
+
+
+            <div>
+
+
+                <span class="tag">
+
+                    🌙 Tu espacio para descansar
+
+                </span>
+
+
+                <h1>
+
+                    SD
+
+                    <br>
+
+                    <span>
+                        Sweet Dreams
+                    </span>
+
+                </h1>
+
+
+                <p class="slogan">
+
+                    “Your rest, our mission”
+
+                </p>
+
+
+                <p class="proposal">
+
+                    Escucha las canciones más suaves y relajantes
+                    en un solo lugar.
+
+                    Descubre música y podcasts pensados para
+                    acompañar tus momentos de calma, descanso
+                    y desconexión.
+
+                </p>
+
+
+                <div class="buttons">
+
+
+                    <a
+                        class="btn primary"
+                        href="#recomendaciones"
+                    >
+
+                        Explorar recomendaciones
+
+                    </a>
+
+
+                    <a
+                        class="btn secondary"
+                        href="#kids"
+                    >
+
+                        Ir a Zona Kids ✨
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Isologo -->
+
+            <img
+                class="hero-logo"
+                src="isologo.png"
+                alt="SD Sweet Dreams"
+            >
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PÚBLICO OBJETIVO
+             ================================================= -->
+
+        <section>
+
+
+            <h2 class="section-title">
+
+                ¿Para quién es Sweet Dreams?
+
+            </h2>
+
+
+            <p class="section-sub">
+
+                Un espacio pensado especialmente para
+                universitarios y personas que buscan una
+                experiencia de relajación y descanso
+                acompañada de sonidos tranquilos.
+
+            </p>
+
+
+            <div class="grid">
+
+
+                <!-- Universitarios -->
+
+                <article class="card">
+
+                    <div class="icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        Universitarios
+                    </h3>
+
+                    <p>
+
+                        Música para desconectar después de
+                        estudiar, relajarse y crear un ambiente
+                        tranquilo.
+
+                    </p>
+
+                </article>
+
+
+                <!-- Descanso -->
+
+                <article class="card">
+
+                    <div class="icon">
+                        🌙
+                    </div>
+
+                    <h3>
+                        Momento de descanso
+                    </h3>
+
+                    <p>
+
+                        Selecciones suaves para acompañar
+                        rutinas nocturnas y momentos de calma.
+
+                    </p>
+
+                </article>
+
+
+                <!-- Todo en un lugar -->
+
+                <article class="card">
+
+                    <div class="icon">
+                        🎧
+                    </div>
+
+                    <h3>
+                        Todo en un solo lugar
+                    </h3>
+
+                    <p>
+
+                        Canciones relajantes y podcasts de
+                        relajación reunidos en una experiencia
+                        sencilla.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECOMENDACIONES
+             ================================================= -->
+
+        <section id="recomendaciones">
+
+
+            <h2 class="section-title">
+
+                🎧 Recomendaciones
+
+            </h2>
+
+
+            <p class="section-sub">
+
+                Elige una opción y escucha una búsqueda preparada
+                para encontrar contenido relajante.
+
+            </p>
+
+
+
+            <!-- CANCIONES -->
+
+            <h3>
+
+                🌌 Canciones relajantes
+
+            </h3>
+
+
+            <div class="music-grid">
+
+
+                <!-- Piano -->
+
+                <div class="music-card">
+
+                    <div>
+
+                        <h3>
+                            Piano para dormir
+                        </h3>
+
+                        <p>
+                            Melodías suaves y lentas
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="play"
+                        onclick="buscar('piano relajante para dormir')"
+                    >
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Lluvia -->
+
+                <div class="music-card">
+
+                    <div>
+
+                        <h3>
+                            Sonidos de lluvia
+                        </h3>
+
+                        <p>
+                            Ambiente tranquilo para descansar
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="play"
+                        onclick="buscar('sonidos de lluvia para dormir')"
+                    >
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Lo-fi -->
+
+                <div class="music-card">
+
+                    <div>
+
+                        <h3>
+                            Lo-fi nocturno
+                        </h3>
+
+                        <p>
+                            Beats suaves para desconectar
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="play"
+                        onclick="buscar('lofi relajante nocturno')"
+                    >
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Frecuencias -->
+
+                <div class="music-card">
+
+                    <div>
+
+                        <h3>
+                            Frecuencias de relajación
+                        </h3>
+
+                        <p>
+                            Ambientes instrumentales tranquilos
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="play"
+                        onclick="buscar('musica relajante para dormir')"
+                    >
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PODCASTS -->
+
+            <h3 style="margin-top: 42px">
+
+                🎙️ Podcasts de relajación
+
+            </h3>
+
+
+            <div class="music-grid">
+
+
+                <!-- Meditación -->
+
+                <div class="music-card">
+
+                    <div>
+
+                        <h3>
+                            Meditación guiada
+                        </h3>
+
+                        <p>
+                            Sesiones para bajar el ritmo
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="play"
+                        onclick="buscar('meditación guiada para dormir podcast')"
+                    >
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Relajación -->
+
+                <div class="music-card">
+
+                    <div>
+
+                        <h3>
+                            Relajación antes de dormir
+                        </h3>
+
+                        <p>
+                            Contenido para crear una rutina nocturna
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="play"
+                        onclick="buscar('podcast relajación antes de dormir')"
+                    >
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ZONA KIDS
+             ================================================= -->
+
+        <section id="kids">
+
+
+            <div class="kids">
+
+
+                <h2 class="section-title">
+
+                    🧸 Zona Kids
+
+                </h2>
+
+
+                <p class="section-sub">
+
+                    Un espacio pensado para niños de
+
+                    <strong>
+                        1 a 5 años
+                    </strong>,
+
+                    con canciones y música de dormir.
+
+                </p>
+
+
+
+                <div class="music-grid">
+
+
+                    <!-- Canciones de cuna -->
+
+                    <div class="music-card">
+
+                        <div>
+
+                            <h3>
+                                🌙 Canciones de cuna
+                            </h3>
+
+                            <p>
+                                Melodías suaves para la hora
+                                de dormir
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="play"
+                            onclick="buscar('canciones de cuna para niños dormir')"
+                        >
+
+                            ▶
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Música tranquila -->
+
+                    <div class="music-card">
+
+                        <div>
+
+                            <h3>
+                                ⭐ Música tranquila
+                            </h3>
+
+                            <p>
+                                Instrumentales suaves para
+                                crear un ambiente calmado
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="play"
+                            onclick="buscar('musica tranquila para niños dormir')"
+                        >
+
+                            ▶
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Sueñitos -->
+
+                    <div class="music-card">
+
+                        <div>
+
+                            <h3>
+                                ☁️ Sueñitos
+                            </h3>
+
+                            <p>
+                                Sonidos y melodías nocturnas
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="play"
+                            onclick="buscar('musica de dormir bebes niños')"
+                        >
+
+                            ▶
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Viaje a las estrellas -->
+
+                    <div class="music-card">
+
+                        <div>
+
+                            <h3>
+                                🪐 Viaje a las estrellas
+                            </h3>
+
+                            <p>
+                                Ambientes musicales para la noche
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="play"
+                            onclick="buscar('musica relajante niños dormir estrellas')"
+                        >
+
+                            ▶
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="note">
+
+                    💡 La Zona Kids contiene únicamente canciones
+                    y música de dormir, tal como propone el proyecto.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACTO
+             ================================================= -->
+
+        <section id="contacto">
+
+
+            <div class="card contact">
+
+
+                <h2 class="section-title">
+
+                    💜 Contáctanos
+
+                </h2>
+
+
+                <p class="section-sub">
+
+                       ¿Tienes una recomendación o quieres saber
+                         más sobre Sweet Dreams?
+
+                </p>
+
+
+                <p>
+
+                    📱
+
+                    <strong>
+                        999 555 905
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    📸 Instagram:
+
+                    <strong>
+                        sweetdreamsy asociados
+                    </strong>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         PIE DE PÁGINA
+         ===================================================== -->
+
+    <footer>
+
+
+        <strong>
+
+            SD | Sweet Dreams
+
+        </strong>
+
+
+        <br>
+
+
+        “Your rest, our mission”
+
+
+        <br>
+        <br>
+
+
+        Contáctanos en:
+
+        número:
+
+        999 555 905
+
+        ·
+
+        Instagram:
+
+        sweetdreamsy asociados
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         Los botones de música abren una búsqueda en YouTube.
+         ===================================================== -->
+
+    <script>
+
+
+        function buscar(texto) {
+
+
+            const url =
+
+                "https://www.youtube.com/results?search_query="
+
+                + encodeURIComponent(texto);
+
+
+            window.open(
+                url,
+                "_blank"
+            );
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
